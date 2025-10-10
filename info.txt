@@ -1,0 +1,81 @@
+Quoting variables in [...] or [[ ... ]]
+like if/else statements
+is considered safe practice
+
+for example
+$a = "akshat"
+
+if [ $a ] X
+if [ "$a" ] correct use.(recommeneded)
+
+
+DISK_USAGE_ALERT.sh
+
+df -h /| awk 'NR==2 {print $5}' | tr -d '%'
+
+df -h / → checks only the root filesystem.
+
+awk 'NR==2 {print $5}' -> extracts the 5th column (use percentage).
+NR==2 means “when the line number is 2”.
+
+tr -d '%' → tells tr to delete every % character from its input.
+
+tr stands for “translate” or “transform”.
+It reads from standard input and replaces or deletes characters as instructed.
+
+-d means delete
+
+
+LOG_ROTATION.sh
+
+1. Find files by name
+find /path/to/search -name "filename.txt"
+
+Searches in /path/to/search for files named filename.txt.
+
+2. Find files by extension
+find /home/user/Documents -type f -name "*.pdf"
+
+Finds all PDF files in /home/user/Documents.
+
+3. Find directories by name
+find /var/www -type d -name "html"
+
+Finds directories named html under /var/www.
+
+4. Find files modified in the last 7 days
+find /home/user -type f -mtime -7
+
+-mtime 7 exactly 7 days
+-mtime +7 more than 7 days
+-mtime -7 withing 7 days
+
+5. Find commands not piped as it doesnot take the putput of previous that why we can use multi filter in one commands
+find | find (not work, out is of the second find alone)
+
+multi filter together
+find /var/log -type f -name "*.log" -mtime +7
+(it will find the files of type (.log) which has modified more than 7 days ago)
+
+6. Execute a command on found files
+find /var/log -type f -name "*.log" -mtime +7 -exec rm {} \;
+
+1️⃣ How -exec works
+
+-exec lets you run a command on each file that find finds.
+Syntax:
+find <path> <conditions> -exec <command> {} \;
+
+Where:
+{} → is a placeholder for the filename that find found.
+\; → marks the end of the -exec command. (The backslash escapes the semicolon for the shell.)
+
+
+
+
+backup_to_s3
+
+to check the size of .zip file or to check if its empty or not
+ls -lh "logs_2025-10-10T17:18:00.tar.gz"
+
+use "" when : is present in file_name
