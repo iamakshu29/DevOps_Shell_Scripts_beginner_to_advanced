@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #########
+# NOT DONE
 # This script will Read usernames from a file and create them in bulk.
 # Author AKSHAT VERMA
 # DATE 10-10-2025
