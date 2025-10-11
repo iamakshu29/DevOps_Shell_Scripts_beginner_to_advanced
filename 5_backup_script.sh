@@ -8,7 +8,12 @@
 
 # Getting the required file
 DIR=$1
+
+echo "Directory to be backed up is $DIR"
+
+# if $DIR is empty ie no input is given
 if [ -z "$DIR" ]; then
+  echo "No onput is there"
   echo "Usage: $0 <directory_to_backup>"
   exit 1
 fi

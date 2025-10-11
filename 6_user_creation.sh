@@ -6,11 +6,18 @@
 # DATE 10-10-2025
 ##########
 
-echo "Creating users"
+
 read=$(cat users.txt)
+
+echo "Creating users from $read"
+
 for i in $read; do
-    echo "creating user $i"
-    sudo useradd $i
+    if [ id "$i" ]; then
+        echo "user $i already exists"
+    else
+        echo "creating user $i"
+        sudo useradd $i
+    fi
 done
 
 

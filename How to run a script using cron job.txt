@@ -1,0 +1,30 @@
+For the first cronjob ever
+Type
+>> crontab -e
+
+Select the editor, you want
+
+Add the following line at the end
+
+# Run script every 5 minutes and log output
+*/5 * * * * <your_script_path_absolute_path> >> <path_where_log_to_be_stored> 2>&1
+
+# Example
+*/5 * * * * /home/ubuntu/shell_script_practice/cpu_memory_usage.sh >> /home/ubuntu/shell_script_practice/myscript.log 2>&1
+
+
+1. List cronjob
+>> crontab -l
+
+2. Stop an cronjob
+>> crontab -e
+ - just comment them 
+
+3. Delete all cronjobs
+>> crontab -r
+
+4. Stop a running cronjob process
+>> ps aux | grep example.sh
+OR
+>> pgrep exampl.sh
+kill -9 <PID>
