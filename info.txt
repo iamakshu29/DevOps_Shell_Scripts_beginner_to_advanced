@@ -8,15 +8,7 @@ $a = "akshat"
 if [ $a ] X
 if [ "$a" ] correct use.(recommended)
 
-
-
-
-backup_to_s3
-
-to check the size of .zip file or to check if its empty or not
-ls -lh "logs_2025-10-10T17:18:00.tar.gz"
-
-use "" when : is present in file_name
+--------------------------------------------------------------
 
 flags used in if statements
 if [ -n string ]
@@ -24,3 +16,38 @@ if [ -n string ]
 2. -z string - true if string is empty
 3. -f string - true if string is file
 3. -d string - true if string is dir
+
+
+1. $( ) — Command Substitution
+Purpose: Runs a command and replaces $(...) with its output.
+Syntax:
+variable=$(command)
+example
+current_date=$(date)
+echo "Current date is: $current_date"
+OR 
+if you just mention any command in echo
+echo " On date $(date), memory is $(free -m)"
+
+2. $(( )) — Arithmetic Expansion
+Purpose: Perform arithmetic calculations inside bash.
+Syntax:
+result=$((expression))
+example: 
+a=5
+b=3
+sum=$((a + b))
+echo "Sum is $sum"
+
+3. { }
+Purpose: Used to expand variables, group commands, or denote blocks. ${ }
+Example 1 (variable expansion):
+name="Alice"
+echo "Hello ${name}!"
+${name} explicitly references the variable name. It’s often optional unless you need to separate variable names from surrounding text:
+echo "${name}123"   # prints Alice123
+echo "$name123"     # tries to print variable named name123 (doesn't exist)
+
+Example 2 (grouping commands): { }
+{ echo "Hello"; echo "World"; } > output.txt
+Groups multiple commands to redirect their output together.
