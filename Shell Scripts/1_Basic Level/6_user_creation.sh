@@ -20,6 +20,3 @@ for i in $read; do
         sudo useradd $i
     fi
 done
-
-
-# add condition if its already exist or not
