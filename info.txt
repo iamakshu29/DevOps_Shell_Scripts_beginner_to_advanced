@@ -8,7 +8,9 @@ $a = "akshat"
 if [ $a ] X
 if [ "$a" ] correct use.(recommended)
 
+
 --------------------------------------------------------------
+
 
 flags used in if statements
 if [ -n string ]
@@ -16,6 +18,9 @@ if [ -n string ]
 2. -z string - true if string is empty
 3. -f string - true if string is file
 3. -d string - true if string is dir
+
+
+--------------------------------------------------------------
 
 
 1. $( ) — Command Substitution
@@ -51,3 +56,14 @@ echo "$name123"     # tries to print variable named name123 (doesn't exist)
 Example 2 (grouping commands): { }
 { echo "Hello"; echo "World"; } > output.txt
 Groups multiple commands to redirect their output together.
+
+
+--------------------------------------------------------------
+
+
+-> When we need to Log Output to a file ?
+
+LOGFILE="/var/log/shell_logs_$(date +%F).log"
+echo "hello world" >> "$LOGFILE" 2>&1
+2>&1 means redirect stderr (file descriptor 2) to the same location as stdout (file descriptor 1)
+-> both normal output and error messages go into the same log file.
