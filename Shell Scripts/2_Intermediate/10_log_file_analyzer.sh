@@ -17,10 +17,11 @@ FILE=$1
 # checking if the input is a file or not
 if [ ! -f "$FILE" ]; then
     echo "File not found: $FILE"
+    exit 1
 fi
 
 ERROR_COUNT=$(grep -i "error" "$FILE" | wc -l)
 WARNING_COUNT=$(grep -i "warning" "$FILE" | wc -l)
 
-SUM=$((ERROR_COUNT)+($WARNING_COUNT))
+SUM=$((ERROR_COUNT + WARNING_COUNT))
 echo "total error and warning in log file are $SUM"

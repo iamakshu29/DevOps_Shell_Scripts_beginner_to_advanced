@@ -8,11 +8,11 @@
 echo "Checking the logs which are not modified for more than 7 days and deleting it"
 find /var/log -type f -name "*.log" -mtime +7 -exec rm {} \;
 
-echo "Listing the logs which are not modified for more than 1 days"
-find /var/log -type f -name "*.log" -mtime +30 -exec ls {} \;
+echo "Listing the logs which are not modified for less than 30 days"
+find /var/log -type f -name "*.log" -mtime -30 -exec ls {} \;
 
-echo "Compressing the logs which are not modified for more than 1 days"
-find /var/log -type f -name "*.log" -mtime +30 -exec gzip {} \;
+echo "Compressing the logs which are not modified for exactly 30 days"
+find /var/log -type f -name "*.log" -mtime 30 -exec gzip {} \;
 
 
 
@@ -38,7 +38,7 @@ find /var/log -type f -name "*.log" -mtime +30 -exec gzip {} \;
 
 # -mtime 7 exactly 7 days
 # -mtime +7 more than 7 days
-# -mtime -7 withing 7 days
+# -mtime -7 within 7 days
 
 # 5. Find commands not piped as it doesnot take the o/p of previous that why we can use multi filter in one commands
 # find | find (not work, o/p is of the second find alone)

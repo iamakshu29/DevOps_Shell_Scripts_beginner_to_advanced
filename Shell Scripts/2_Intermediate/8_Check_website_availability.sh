@@ -16,7 +16,9 @@ if [ -z "$URL" ]; then
 fi
 
 ping -c 1 $URL
+# why ping -c 1 ? to send only 1 packet to check availability
 code=$?
+
 if [ $code -eq 0 ]; then
     echo "Host is reachable"
     exit 0

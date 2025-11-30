@@ -8,7 +8,7 @@
 
 #### APPROACH
 # input variables
-# connction check
+# connection check
 # sync operation
 # logging
 # Automate via cronjob

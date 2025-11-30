@@ -34,5 +34,3 @@ else
     echo "Not destroying the architecture now"
     exit 0
 fi
-
-
