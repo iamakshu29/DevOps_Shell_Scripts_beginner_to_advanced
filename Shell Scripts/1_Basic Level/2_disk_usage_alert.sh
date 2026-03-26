@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This will email-alert or Send a warning if disk usage > 50%.
+# This will send a warning if disk usage > 50%.
 # Author: Akshat Verma
 # Version: v0.0.1
 # Date 2025-10-06
