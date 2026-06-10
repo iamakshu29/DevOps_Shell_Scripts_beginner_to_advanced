@@ -25,7 +25,8 @@ fi
 # df -h / → checks only the root filesystem.
 
 # awk 'NR==2 {print $5}' -> extracts the 5th column (use percentage).
-# NR==2 means “when the line number is 2”.
+# NR==2 means "when Number of row == 2.
+# {print $5} -> print the 5th column
 
 # tr -d '%' → tells tr to delete (-d) every '%' character from its input. (50% -> 50)
 # tr stands for “translate” or “transform”.
