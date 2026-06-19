@@ -10,19 +10,54 @@ if [ "$a" ] correct use.(recommended)
 
 
 --------------------------------------------------------------
+>> if-else syntax
+if [[ ... ]]; then
+fi
+
+Example --
+
+num=5
+
+if [[ "$num" -gt 5 ]]; then
+    echo "Greater than 5"
+elif [[ "$num" -eq 5 ]]; then
+    echo "Equal to 5"
+else
+    echo "Less than 5"
+fi
 
 
-flags used in if statements
+--------------------------------------------------------------
+>> for-loop syntax
+for ... in ...; do
+done
+
+Example --
+for item in apple banana orange; do
+    echo "$item"
+done
+
+for i in {1..5}; do
+    echo "$i"
+done
+
+
+--------------------------------------------------------------
+>> Logical Operators
+
+For Numerical Comparisons, Use
+-gt, -lt, -ge, -le, -eq, -ne
+
+For String Comparisons, Use
+==, !=, >, < and below flags
+
 if [ -n string ]
 1. -n string - true if string is not empty
 2. -z string - true if string is empty
 3. -f string - true if string is file
 3. -d string - true if string is dir
 
-
 --------------------------------------------------------------
-
-
 1. $( ) — Command Substitution
 Purpose: Runs a command and replaces $(...) with its output.
 Syntax:
@@ -59,8 +94,6 @@ Groups multiple commands to redirect their output together.
 
 
 --------------------------------------------------------------
-
-
 -> When we need to Log Output to a file ?
 
 LOGFILE="/var/log/shell_logs_$(date +%F).log"
